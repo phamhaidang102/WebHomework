@@ -1,0 +1,36 @@
+# ==========================================
+# GITIGNORE - BÀI TẬP LỚN CÔNG NGHỆ WEB (IUH)
+# ==========================================
+
+# Thư mục ghi chú nội bộ, tài liệu nháp & scratch
+notes/
+_notes/
+docs_draft/
+scratch/
+temp/
+tmp/
+
+# File tạm thời của Microsoft Office (Word, PowerPoint, Excel)
+~$*
+*.tmp
+
+# IDEs & Editor settings
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Hệ điều hành (Windows, macOS)
+Thumbs.db
+desktop.ini
+.DS_Store
+*.Identifier
+
+# File nén bài nộp LMS (tránh nặng git history)
+*.zip
+*.rar
+*.7z
+
+# Python cache (nếu chạy script sinh báo cáo/slide)
+__pycache__/
+*.pyc
