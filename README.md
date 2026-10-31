@@ -188,3 +188,26 @@ egister.html (Regex jQuery) & login.html (Lưu LocalStorage) |
 | | | **Đăng** | Hoàn thiện Báo cáo Word (BaoCao_BTL_Web.docx) & Slide thuyết trình (ThuyetTrinh_BTL_Web.pptx) |
 | | | **Khánh nhỏ** | Nhận slide từ Đăng và dợt kịch bản thuyết trình thử |
 | **Pha 5: Ngày nộp bài** | **11/11/2026** | **Cả nhóm** | Đóng gói nộp LMS và báo cáo trước giảng viên! |
+
+---
+
+### 6. QUY ƯỚC QUẢN LÝ HÌNH ẢNH (`assets/images/`)
+
+> **Người phụ trách: Lĩnh.** Lĩnh quản lý kho ảnh chung của website; các bạn khác không tự ý sửa, xóa hoặc đổi tên ảnh chung.
+
+**Phân công**
+- Lĩnh thay các ảnh tạm (đang bị mờ vì cắt từ layout mẫu) bằng ảnh thật chất lượng cao: `hero-halong.jpg`, `promo-summer.jpg`, `tour-danang.jpg`, `tour-nhatrang.jpg`, `tour-phuquoc.jpg`, `tour-singapore.jpg`.
+- Lĩnh bổ sung ảnh cho các tour mới và ảnh thành viên cho trang `about.html`.
+- Website phải có tối thiểu **7 hình ảnh** (yêu cầu đề bài).
+- Deadline: **23:59 ngày 05/11** để cả nhóm kiểm tra giao diện với ảnh thật.
+
+**Quy ước đặt tên và định dạng**
+- Chữ thường, không dấu, nối bằng dấu gạch ngang. Ví dụ: `tour-danang.jpg`, `member-linh.jpg`.
+- Thay ảnh cũ thì **giữ nguyên tên file** để không phải sửa code. Nếu bắt buộc đổi tên, sửa trường `image` trong `assets/js/data.js` và tăng `ABC_DATA_VERSION`.
+- Định dạng `.jpg`/`.webp`, rộng khoảng 1200px cho ảnh banner, khoảng 800px cho ảnh tour. Mỗi ảnh nên dưới 300 KB.
+- Mọi thẻ `<img>` phải có thuộc tính `alt` mô tả nội dung (alt rỗng chỉ dùng cho ảnh trang trí).
+- Dùng ảnh có bản quyền cho phép (tự chụp hoặc ảnh miễn phí như Unsplash/Pexels) và ghi nguồn ở mục Tài liệu tham khảo của báo cáo.
+
+**Quy trình Git cho ảnh**
+- Lĩnh làm trên branch `feature/images` hoặc `feature/about-sitemap`, rồi tạo Pull Request như mục 4.
+- Bạn nào cần thêm ảnh riêng cho trang của mình: nhờ Lĩnh hoặc tự thêm file mới với tên không trùng, không sửa ảnh đang có.
