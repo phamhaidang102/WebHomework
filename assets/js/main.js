@@ -1,16 +1,25 @@
 /* =====================================================
    LOGIC DÙNG CHUNG - ABC TOURS
-   Phụ thuộc: jQuery, assets/js/data.js (nạp TRƯỚC file này)
+   Phụ thuộc: jQuery, Bootstrap 5 Bundle, assets/js/data.js (nạp TRƯỚC file này)
    Cung cấp:
-     ABC.getTours(), ABC.getTourById(id), ABC.formatVND(n)
-     ABC.getCurrentUser(), ABC.logout()
-   Tự động dựng Navbar vào <header id="site-header"></header>
+     - Tour: ABC.getTours(), ABC.getTourById(id), ABC.formatVND(n)
+     - Auth: ABC.getCurrentUser(), ABC.getUsers(), ABC.saveUser(u), ABC.login(id, pw), ABC.logout()
+     - Đơn hàng: ABC.getOrders(), ABC.getOrderByCode(code), ABC.saveOrder(order),
+                 ABC.updateOrderStatus(code, status, extra), ABC.calcRefund(order)
+   Tự động dựng Navbar + Modal Đăng nhập nhanh vào <header id="site-header"></header>
    và Footer vào <footer id="site-footer"></footer>
    ===================================================== */
 var ABC = (function ($) {
   "use strict";
 
-  var KEYS = { tours: "abc_tours", user: "currentUser", search: "abc_search" };
+  var KEYS = {
+    tours: "abc_tours",
+    users: "abc_users",
+    user: "currentUser",
+    orders: "abc_orders",
+    draftBooking: "abc_draft_booking",
+    search: "abc_search"
+  };
 
   function read(key, fallback) {
     try {
@@ -18,31 +27,133 @@ var ABC = (function ($) {
       return raw ? JSON.parse(raw) : fallback;
     } catch (e) { return fallback; }
   }
-  function write(key, value) { localStorage.setItem(key, JSON.stringify(value)); }
+  function write(key, value) {
+    try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) {}
+  }
 
-  /* ----- Dữ liệu tour ----- */
-  function seedTours() {
-    // Nạp lại dữ liệu mẫu khi chưa có hoặc khi ABC_DATA_VERSION (data.js) thay đổi
-    if (typeof ABC_SAMPLE_TOURS === "undefined") { return; }
+  /* ----- Dữ liệu tour & đơn mẫu ----- */
+  function seedData() {
     var ver = String(typeof ABC_DATA_VERSION !== "undefined" ? ABC_DATA_VERSION : 1);
-    if (!read(KEYS.tours, null) || localStorage.getItem("abc_tours_v") !== ver) {
-      write(KEYS.tours, ABC_SAMPLE_TOURS);
-      localStorage.setItem("abc_tours_v", ver);
+    if (typeof ABC_SAMPLE_TOURS !== "undefined") {
+      if (!read(KEYS.tours, null) || localStorage.getItem("abc_tours_v") !== ver) {
+        write(KEYS.tours, ABC_SAMPLE_TOURS);
+        try { localStorage.setItem("abc_tours_v", ver); } catch (e) {}
+      }
+    }
+    if (typeof ABC_SAMPLE_ORDERS !== "undefined") {
+      var existingOrders = read(KEYS.orders, null);
+      if (!existingOrders || !existingOrders.length) {
+        write(KEYS.orders, ABC_SAMPLE_ORDERS);
+      }
     }
   }
-  function getTours() { return read(KEYS.tours, []); }
+  function getTours() { return read(KEYS.tours, typeof ABC_SAMPLE_TOURS !== "undefined" ? ABC_SAMPLE_TOURS : []); }
   function getTourById(id) {
-    return getTours().filter(function (t) { return t.id === id; })[0] || null;
+    return getTours().filter(function (t) { return t.id === id || t.code === id; })[0] || null;
   }
   function formatVND(n) {
-    return Number(n).toLocaleString("vi-VN") + "đ";
+    return Number(n || 0).toLocaleString("vi-VN") + "đ";
   }
 
-  /* ----- Phiên đăng nhập ----- */
+  /* ----- Phiên đăng nhập & Tài khoản (Khánh nhỏ - SV2) ----- */
+  function getUsers() { return read(KEYS.users, []); }
+  function saveUser(userObj) {
+    var list = getUsers();
+    list.push(userObj);
+    write(KEYS.users, list);
+  }
   function getCurrentUser() { return read(KEYS.user, null); }
-  function logout() { localStorage.removeItem(KEYS.user); window.location.href = "index.html"; }
+  function login(identifier, password) {
+    var idClean = $.trim(String(identifier || "")).toLowerCase();
+    var users = getUsers();
+    var found = null;
+    for (var i = 0; i < users.length; i++) {
+      var u = users[i];
+      var mail = String(u.email || "").toLowerCase();
+      var phone = String(u.phone || "").toLowerCase();
+      var uname = String(u.username || "").toLowerCase();
+      if ((mail === idClean || phone === idClean || uname === idClean) && u.password === password) {
+        found = u;
+        break;
+      }
+    }
+    if (!found && idClean === "demo@abctours.vn" && password === "Abc@1234") {
+      found = { fullName: "Khách hàng Demo", email: "demo@abctours.vn", phone: "0901234567", cccd: "079204001234" };
+    }
+    if (found) {
+      var sessionUser = {
+        fullName: found.fullName || found.name || "Thành viên",
+        email: found.email || "",
+        phone: found.phone || "",
+        cccd: found.cccd || ""
+      };
+      write(KEYS.user, sessionUser);
+      return { ok: true, user: sessionUser };
+    }
+    return { ok: false, message: "Email/Số điện thoại hoặc mật khẩu không chính xác." };
+  }
+  function logout() {
+    try { localStorage.removeItem(KEYS.user); } catch (e) {}
+    window.location.href = "index.html";
+  }
 
-  /* ----- Navbar & Footer ----- */
+  /* ----- Đơn đặt tour & Hoàn tiền (Khánh Duy SV5 & Quốc Duy SV6) ----- */
+  function getOrders() { return read(KEYS.orders, typeof ABC_SAMPLE_ORDERS !== "undefined" ? ABC_SAMPLE_ORDERS : []); }
+  function getOrderByCode(code) {
+    var clean = $.trim(String(code || "")).toUpperCase();
+    return getOrders().filter(function (o) {
+      return String(o.orderCode || o.orderId || "").toUpperCase() === clean;
+    })[0] || null;
+  }
+  function saveOrder(order) {
+    var list = getOrders();
+    list.unshift(order);
+    write(KEYS.orders, list);
+    return order;
+  }
+  function updateOrderStatus(code, status, extra) {
+    var clean = $.trim(String(code || "")).toUpperCase();
+    var list = getOrders();
+    var updated = null;
+    for (var i = 0; i < list.length; i++) {
+      if (String(list[i].orderCode || list[i].orderId || "").toUpperCase() === clean) {
+        list[i].status = status;
+        if (extra && typeof extra === "object") {
+          for (var k in extra) {
+            if (Object.prototype.hasOwnProperty.call(extra, k)) { list[i][k] = extra[k]; }
+          }
+        }
+        updated = list[i];
+        break;
+      }
+    }
+    write(KEYS.orders, list);
+    return updated;
+  }
+  function calcRefund(order, nowDate) {
+    if (!order) { return { hoursLeft: 0, percent: 0, refundAmount: 0, reason: "Không tìm thấy đơn tour" }; }
+    var now = nowDate ? new Date(nowDate) : new Date();
+    var dep = new Date(order.departureDate);
+    var hoursLeft = (dep.getTime() - now.getTime()) / 3600000;
+    var percent = 0;
+    var reason = "Hủy dưới 12 giờ trước giờ khởi hành: không hỗ trợ hoàn tiền (0%).";
+    if (hoursLeft >= 24) {
+      percent = 70;
+      reason = "Hủy trước giờ khởi hành từ 24 giờ trở lên: hoàn 70% tổng giá trị đơn.";
+    } else if (hoursLeft >= 12) {
+      percent = 50;
+      reason = "Hủy trước giờ khởi hành từ 12 giờ đến dưới 24 giờ: hoàn 50% tổng giá trị đơn.";
+    }
+    var refundAmount = Math.round((Number(order.totalPrice || 0) * percent) / 100);
+    return {
+      hoursLeft: Math.round(hoursLeft * 10) / 10,
+      percent: percent,
+      refundAmount: refundAmount,
+      reason: reason
+    };
+  }
+
+  /* ----- Navbar, Quick Login Modal & Footer ----- */
   function navbarHtml(active) {
     var user = getCurrentUser();
     function cls(page) { return "nav-link" + (active === page ? " active" : ""); }
@@ -58,7 +169,8 @@ var ABC = (function ($) {
             '<li><hr class="dropdown-divider"></li>' +
             '<li><button type="button" class="dropdown-item" id="btn-logout">Đăng xuất</button></li>' +
           "</ul></li>"
-      : '<li class="nav-item"><a class="' + cls("login") + '" href="login.html"' + cur("login") + ">Đăng nhập</a></li>" +
+      : '<li class="nav-item"><a class="' + cls("login") + '" href="login.html"' + cur("login") + '>Đăng nhập</a></li>' +
+        '<li class="nav-item ms-lg-1"><button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#quickLoginModal">Đăng nhập nhanh</button></li>' +
         '<li class="nav-item ms-lg-2"><a class="btn btn-abc" href="register.html">Đăng ký</a></li>';
 
     return (
@@ -87,7 +199,37 @@ var ABC = (function ($) {
               "</ul></li>" +
           "</ul>" +
           '<ul class="navbar-nav align-items-lg-center">' + account + "</ul>" +
-        "</div></div></nav>"
+        "</div></div></nav>" +
+      '<div class="modal fade" id="quickLoginModal" tabindex="-1" aria-labelledby="quickLoginTitle" aria-hidden="true">' +
+        '<div class="modal-dialog modal-dialog-centered">' +
+          '<div class="modal-content">' +
+            '<div class="modal-header">' +
+              '<h2 class="modal-title h5 mb-0" id="quickLoginTitle">Đăng nhập tài khoản ABC Tours</h2>' +
+              '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>' +
+            '</div>' +
+            '<div class="modal-body">' +
+              '<form id="quick-login-form" novalidate>' +
+                '<div class="mb-3">' +
+                  '<label for="ql-identifier" class="form-label">Email hoặc Số điện thoại</label>' +
+                  '<input type="text" class="form-control" id="ql-identifier" name="identifier" placeholder="Ví dụ: demo@abctours.vn hoặc 0901234567" required>' +
+                '</div>' +
+                '<div class="mb-3">' +
+                  '<label for="ql-password" class="form-label">Mật khẩu</label>' +
+                  '<input type="password" class="form-control" id="ql-password" name="password" placeholder="Nhập mật khẩu (Demo: Abc@1234)" required>' +
+                '</div>' +
+                '<div class="alert alert-danger py-2 d-none" id="ql-error" role="alert"></div>' +
+                '<div class="d-grid gap-2">' +
+                  '<button type="submit" class="btn btn-abc">Đăng nhập</button>' +
+                '</div>' +
+              '</form>' +
+            '</div>' +
+            '<div class="modal-footer justify-content-between small">' +
+              '<span>Chưa có tài khoản? <a href="register.html">Đăng ký ngay</a></span>' +
+              '<a href="login.html">Mở trang Đăng nhập đầy đủ</a>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+      '</div>'
     );
   }
 
@@ -119,13 +261,26 @@ var ABC = (function ($) {
     $("#site-header").html(navbarHtml(active));
     $("#site-footer").addClass("abc-footer").html(footerHtml());
     $(document).on("click", "#btn-logout", logout);
+    $(document).on("submit", "#quick-login-form", function (e) {
+      e.preventDefault();
+      var idVal = $("#ql-identifier").val();
+      var pwVal = $("#ql-password").val();
+      var res = login(idVal, pwVal);
+      if (res.ok) {
+        window.location.reload();
+      } else {
+        $("#ql-error").text(res.message).removeClass("d-none");
+      }
+    });
   }
 
-  $(function () { seedTours(); mountLayout(); });
+  $(function () { seedData(); mountLayout(); });
 
   return {
     KEYS: KEYS, read: read, write: write,
     getTours: getTours, getTourById: getTourById, formatVND: formatVND,
-    getCurrentUser: getCurrentUser, logout: logout
+    getUsers: getUsers, saveUser: saveUser, getCurrentUser: getCurrentUser, login: login, logout: logout,
+    getOrders: getOrders, getOrderByCode: getOrderByCode, saveOrder: saveOrder,
+    updateOrderStatus: updateOrderStatus, calcRefund: calcRefund
   };
 })(jQuery);

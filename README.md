@@ -6,7 +6,7 @@
 ### 1. Cấu trúc thư mục dự án
 ```
 D:\Code\Bài tập lớn Web\
-├── index.html              # 1. Trang chủ (Đăng - Nhóm trưởng)
+├── index.html              # 1. Trang chủ (Đăng - Nhóm trưởng) [ĐÃ HOÀN THÀNH]
 ├── sitemap.html            # 2. Trang Sitemap (Lĩnh)
 ├── about.html              # 3. Trang Giới thiệu (Lĩnh)
 ├── register.html           # 4. Trang Đăng ký (Khánh nhỏ - Thuyết trình viên)
@@ -22,13 +22,14 @@ D:\Code\Bài tập lớn Web\
 │
 ├── assets/
 │   ├── css/
-│   │   └── style.css       # File stylesheet chung (Desktop first)
+│   │   └── style.css       # File stylesheet chung (Desktop first) [ĐÃ HOÀN THÀNH]
 │   ├── vendor/
-│   │   ├── bootstrap/      # Bootstrap 5 offline
-│   │   └── jquery/         # jQuery 3.7.1 offline
+│   │   ├── bootstrap/      # Bootstrap 5 offline [ĐÃ NẠP SẴN]
+│   │   └── jquery/         # jQuery 3.7.1 offline [ĐÃ NẠP SẴN]
 │   ├── js/
-│   │   ├── data.js         # Dữ liệu tour mẫu nạp vào LocalStorage
-│   │   └── main.js         # Logic dùng chung
+│   │   ├── data.js         # 12 tour mẫu + 2 đơn hàng mẫu nạp vào LocalStorage [ĐÃ HOÀN THÀNH]
+│   │   ├── main.js         # Header/Footer/Modal Đăng nhập nhanh & Helper dùng chung [ĐÃ HOÀN THÀNH]
+│   │   └── home.js         # Logic riêng của Trang chủ [ĐÃ HOÀN THÀNH]
 │   └── images/             # Toàn bộ hình ảnh dự án (Lĩnh chuẩn hóa)
 └── notes/                  # Thư mục ghi chú nội bộ (Đã được .gitignore tự động bỏ qua)
 ```
@@ -36,14 +37,14 @@ D:\Code\Bài tập lớn Web\
 ---
 
 ### 2. Bảng phân công nhiệm vụ
-- **Đăng (Nhóm trưởng / Architect & Slide Lead):** Điều phối Git, khởi tạo template dùng chung, Trang chủ (`index.html`), **thiết kế toàn bộ Slide thuyết trình PowerPoint (`ThuyetTrinh_BTL_Web.pptx`)**, tổng hợp hoàn thiện Báo cáo Word.
-- **Khánh nhỏ (Frontend Dev & Thuyết trình viên chính):** **Đại diện nhóm thuyết trình và trả lời phản biện**, lập trình module Đăng ký (`register.html` regex validate jQuery) & Đăng nhập (`login.html`), quản lý session `currentUser` qua LocalStorage.
-- **Khánh lớn (Frontend Dev / Tour Catalog):** Trang Danh sách tour (`tours.html`), bộ lọc đa tiêu chí bên trái (Vùng miền, Quốc tế, Giá, Loại tour M.I.C.E), phân trang.
-- **Phúc (Frontend Dev / Tour Detail):** Trang Chi tiết tour (`tour-detail.html`), Carousel ảnh, bảng giá, lịch trình chi tiết từng ngày, chính sách tour.
-- **Khánh Duy (Frontend Dev / Booking Logic):** Trang Đặt tour & Modal thêm người đi cùng (`booking.html`), Trang Xác nhận & Thanh toán (`checkout.html`, `booking-success.html`), tính tiền và lưu đơn hàng vào LocalStorage.
-- **Quốc Duy (Frontend Dev / Lookup & Refund):** Trang Tra cứu đơn (`my-bookings.html`), Hủy tour & tính % hoàn tiền theo mốc 24h/12h (`cancel-refund.html`), Trang Quản trị đơn (`admin.html`).
-- **Lĩnh (Frontend Dev - Lập trình vừa sức):** Lập trình **Trang Giới thiệu (`about.html`)** và **Trang Sitemap (`sitemap.html`)**. **Quản lý kho hình ảnh chung** (`assets/images/`): thay ảnh tạm bằng ảnh thật chất lượng cao, đảm bảo tối thiểu 7 ảnh có `alt`, theo quy ước ở mục 6.
-- **Thành viên 8:** Thành viên phác thảo Concept giao diện ban đầu (hiện vắng mặt/mất liên lạc).
+- **Đăng (Nhóm trưởng / Architect & Slide Lead):** Điều phối Git, khởi tạo template dùng chung (`style.css`, `data.js`, `main.js`), Trang chủ (`index.html`), **thiết kế toàn bộ Slide thuyết trình PowerPoint (`ThuyetTrinh_BTL_Web.pptx`)**, tổng hợp hoàn thiện Báo cáo Word (`BaoCao_BTL_Web.docx`).
+- **Khánh nhỏ (Frontend Dev & Thuyết trình viên chính):** **Đại diện nhóm thuyết trình và trả lời phản biện**, lập trình module Đăng ký (`register.html` regex validate jQuery) & Đăng nhập (`login.html`), quản lý danh sách `abc_users` và phiên `currentUser` qua LocalStorage.
+- **Khánh lớn (Frontend Dev / Tour Catalog):** Trang Danh sách tour (`tours.html`), bộ lọc đa tiêu chí bên trái (Vùng miền Bắc/Trung/Nam, Quốc tế Á/Âu/Mỹ, Khoảng giá, Loại tour Phổ thông/Cao cấp/M.I.C.E), sắp xếp và phân trang.
+- **Phúc (Frontend Dev / Tour Detail):** Trang Chi tiết tour (`tour-detail.html`), Carousel ảnh, bảng giá, lịch trình chi tiết từng ngày (`itinerary`), chính sách tour, nút "Đặt ngay" chuyển sang `booking.html?id=<tourId>`.
+- **Khánh Duy (Frontend Dev / Booking Logic):** Trang Đặt tour & Modal thêm người đi cùng (`booking.html`), Trang Xác nhận & Thanh toán (`checkout.html`), Trang Đặt tour thành công (`booking-success.html`), tính tổng tiền (kèm phụ thu phòng đơn) và lưu đơn hàng vào `abc_orders` trong LocalStorage.
+- **Quốc Duy (Frontend Dev / Lookup & Refund):** Trang Tra cứu đơn (`my-bookings.html` kèm đếm ngược hạn thanh toán 24h), Hủy tour & tính % hoàn tiền theo mốc 24h (70%) / 12h (50%) (`cancel-refund.html`), Trang Quản trị tour & đơn hàng (`admin.html`).
+- **Lĩnh (Frontend Dev - Lập trình vừa sức):** Lập trình **Trang Giới thiệu (`about.html`)** và **Trang Sitemap (`sitemap.html`)**. **Quản lý kho hình ảnh chung** (`assets/images/`): thay ảnh tạm bằng ảnh thật chất lượng cao, đảm bảo tối thiểu 7 ảnh có `alt` chuẩn W3C theo quy ước ở mục 6.
+- **Thành viên 8:** Thành viên phác thảo Concept giao diện ban đầu (hiện vắng mặt/mất liên lạc; ghi nhận ở giai đoạn Concept).
 
 ---
 
@@ -57,7 +58,7 @@ D:\Code\Bài tập lớn Web\
    - Xám nhạt nền: `#F5F7FA`
    - Xanh đậm chữ: `#1E293B`
 4. **Lưu trữ dữ liệu:** Dùng mảng JavaScript và `localStorage`, không dùng backend database.
-5. **Tiêu chuẩn HTML:** Thẻ `<title>` có ý nghĩa riêng cho từng trang, tuân thủ chuẩn W3C validation.
+5. **Tiêu chuẩn HTML:** Thẻ `<title>` có ý nghĩa riêng cho từng trang, mọi thẻ `<img>` có `alt`, mọi `<input>`/`<select>` có `<label>`, tuân thủ chuẩn W3C validation.
 
 ---
 
@@ -83,15 +84,15 @@ D:\Code\Bài tập lớn Web\
 ---
 
 #### 4.2. Bảng quy ước tên Branch theo trang cho từng thành viên:
-| Thành viên | Trang phụ trách | Tên Branch quy ước |
-|:---|:---|:---|
-| **Đăng** | Trang chủ (`index.html`) | `feature/home` |
-| **Khánh nhỏ** | Đăng ký & Đăng nhập (`register.html`, `login.html`) | `feature/auth` |
-| **Khánh lớn** | Danh sách tour (`tours.html`) | `feature/tours` |
-| **Phúc** | Chi tiết tour (`tour-detail.html`) | `feature/tour-detail` |
-| **Khánh Duy** | Đặt tour & Thanh toán (`booking.html`, `checkout.html`) | `feature/booking` |
-| **Quốc Duy** | Tra cứu & Hủy tour (`my-bookings.html`, `cancel-refund.html`) | `feature/refund` |
-| **Lĩnh** | Giới thiệu & Sitemap (`about.html`, `sitemap.html`) | `feature/about-sitemap` |
+| Thành viên | Trang & File phụ trách | Tên Branch quy ước | Trạng thái |
+|:---|:---|:---|:---:|
+| **Đăng** | Khung dùng chung (`style.css`, `data.js`, `main.js`) & Trang chủ (`index.html`) | `feature/home` | ✅ Đã Merge |
+| **Khánh nhỏ** | Đăng ký & Đăng nhập (`register.html`, `login.html`) | `feature/auth` | Đang thực hiện |
+| **Khánh lớn** | Danh sách tour (`tours.html`) | `feature/tours` | Đang thực hiện |
+| **Phúc** | Chi tiết tour (`tour-detail.html`) | `feature/tour-detail` | Đang thực hiện |
+| **Khánh Duy** | Đặt tour & Thanh toán (`booking.html`, `checkout.html`, `booking-success.html`) | `feature/booking` | Đang thực hiện |
+| **Quốc Duy** | Tra cứu, Hủy tour & Quản trị (`my-bookings.html`, `cancel-refund.html`, `admin.html`) | `feature/refund` | Đang thực hiện |
+| **Lĩnh** | Giới thiệu, Sitemap & Kho ảnh (`about.html`, `sitemap.html`, `assets/images/`) | `feature/about-sitemap` | Đang thực hiện |
 
 ---
 
@@ -157,56 +158,147 @@ Sau đó lên link GitHub bấm **Compare & pull request** tương tự như Bư
 ---
 
 #### 4.6. Các lưu ý quan trọng để không bao giờ bị xung đột (Conflict):
-1. **Phân chia file độc lập:** Mỗi bạn chỉ tạo và sửa file HTML được phân công trong bảng mục 2. Không sửa file HTML của nhau.
-2. **Khi viết thêm CSS vào file `assets/css/style.css`:**
+1. **Phân chia file độc lập:** Mỗi bạn chỉ tạo và sửa file HTML được phân công trong bảng mục 4.2. Không sửa file HTML của nhau.
+2. **Dữ liệu `assets/js/data.js` và `assets/js/main.js` đã được khóa chuẩn:** Đăng đã nạp sẵn **12 tour đầy đủ** (Bắc/Trung/Nam, Á/Âu/Mỹ, Standard/Premium/MICE, lịch trình từng ngày) và **2 đơn đặt tour mẫu** trong `data.js`. Các bạn **không cần sửa `data.js`** để tránh xung đột.
+3. **Khi viết thêm CSS vào file `assets/css/style.css`:**
    Kéo xuống dưới cùng của file `style.css`, ghi chú tên mình rồi viết CSS tiếp theo:
    ```css
    /* ======================================= */
    /* CSS DÀNH RIÊNG CHO TRANG TOURS (KHÁNH LỚN) */
    /* ======================================= */
-   .tour-card { ... }
+   .tour-filter-sidebar { ... }
    ```
-3. **Thư mục ghi chú:** Toàn bộ note cá nhân, tài liệu nháp cứ ném vào thư mục `notes/`. Thư mục này đã có `.gitignore` bảo vệ nên không bao giờ bị đẩy lên GitHub làm bẩn repo chung.
+4. **Thư mục ghi chú:** Toàn bộ note cá nhân, tài liệu nháp cứ ném vào thư mục `notes/`. Thư mục này đã có `.gitignore` bảo vệ nên không bao giờ bị đẩy lên GitHub làm bẩn repo chung.
 
 ---
 
 ### 5. LỊCH TRÌNH VÀ DEADLINE CHI TIẾT (31/10 - 11/11/2026)
 
-> **Mục tiêu:** Hoàn thành toàn bộ code trước ngày **09/11**, dành 2 ngày cuối (10/11 - 11/11) hoàn thiện Báo cáo Word, Slide thuyết trình PPTX và dợt thuyết trình demo.
+> **Cập nhật tiến độ:** Nhóm trưởng (**Đăng**) đã hoàn thành xong **Pha 1** ngay trong ngày **31/10/2026** (sớm hơn kế hoạch 2 ngày). Toàn bộ các thành viên có thể `git pull origin main` và bắt đầu code ngay từ hôm nay!
 
-| Giai đoạn | Hạn chót (Deadline) | Thành viên | Nhiệm vụ cần hoàn thành & Merge PR |
-|:---|:---:|:---|:---|
-| **Pha 1: Xây móng** | **23:59 ngày 02/11** | **Đăng** | Khởi tạo khung Header/Footer/CSS chung và Trang chủ (`index.html`) -> Merge vào `main` để cả nhóm kéo về |
-| **Pha 2: Giao diện tĩnh & Auth** | **23:59 ngày 05/11** | **Lĩnh** | Hoàn thành `sitemap.html`, `about.html`; quản lý kho ảnh `assets/images/` (thay ảnh tạm bằng ảnh thật chất lượng cao, xem mục 6) |
-| | | **Khánh nhỏ** | Hoàn thành `register.html` (Regex jQuery) & `login.html` (Lưu LocalStorage) |
-| | | **Phúc** | Hoàn thành `tour-detail.html` (Carousel ảnh, lịch trình ngày, bảng giá) |
-| **Pha 3: Danh mục & Đặt tour** | **23:59 ngày 08/11** | **Khánh lớn** | Hoàn thành `tours.html` (Bộ lọc đa năng, phân trang) |
-| | | **Khánh Duy** | Hoàn thành `booking.html`, `checkout.html`, `booking-success.html` (Lưu đơn LocalStorage) |
-| | | **Quốc Duy** | Hoàn thành `my-bookings.html` (Tra cứu), `cancel-refund.html` (Hủy tour/hoàn tiền), `admin.html` |
-| **Pha 4: Khóa Code & Đóng gói** | **23:59 ngày 10/11** | **Cả nhóm** | Kiểm tra liên kết 12 trang, W3C validation, không còn lỗi hiển thị |
-| | | **Đăng** | Hoàn thiện Báo cáo Word (`BaoCao_BTL_Web.docx`) & Slide thuyết trình (`ThuyetTrinh_BTL_Web.pptx`) |
-| | | **Khánh nhỏ** | Nhận slide từ Đăng và dợt kịch bản thuyết trình thử |
-| **Pha 5: Ngày nộp bài** | **11/11/2026** | **Cả nhóm** | Đóng gói nộp LMS và báo cáo trước giảng viên! |
+| Giai đoạn | Hạn chót (Deadline) | Thành viên | Nhiệm vụ cần hoàn thành & Merge PR | Trạng thái |
+|:---|:---:|:---|:---|:---:|
+| **Pha 1: Xây dựng nền tảng & Trang chủ** | **Hoàn thành ngày 31/10** | **Đăng** | Khởi tạo Header/Footer/Modal Đăng nhập nhanh, CSS chung, 12 tour mẫu (`data.js`), helper (`main.js`) và Trang chủ (`index.html`) -> Đã merge vào `main` | ✅ **Đã xong (31/10)** |
+| **Pha 2: Giao diện tĩnh, Auth & Danh mục/Chi tiết Tour** | **23:59 ngày 04/11** | **Lĩnh** | Hoàn thành `sitemap.html`, `about.html`; cập nhật kho ảnh thật chất lượng cao vào `assets/images/` (xem mục 6) | ⏳ Đang mở |
+| | | **Khánh nhỏ** | Hoàn thành `register.html` (Regex validate jQuery) & `login.html` (Xác thực LocalStorage) | ⏳ Đang mở |
+| | | **Khánh lớn** | Hoàn thành `tours.html` (Bộ lọc đa tiêu chí Bắc/Trung/Nam, Á/Âu/Mỹ, Giá, M.I.C.E & phân trang) | ⏳ Đang mở |
+| | | **Phúc** | Hoàn thành `tour-detail.html` (Carousel ảnh, lịch trình từng ngày, bảng giá, nút Đặt ngay) | ⏳ Đang mở |
+| **Pha 3: Luồng Đặt tour, Thanh toán & Tra cứu/Hoàn tiền** | **23:59 ngày 07/11** | **Khánh Duy** | Hoàn thành `booking.html` (Modal hành khách), `checkout.html`, `booking-success.html` (Lưu đơn vào `abc_orders`) | ⏳ Đang mở |
+| | | **Quốc Duy** | Hoàn thành `my-bookings.html` (Tra cứu & đếm ngược 24h), `cancel-refund.html` (Hoàn tiền 70%/50%), `admin.html` *(Đã có sẵn 2 đơn mẫu trong `data.js` để code song song từ 01/11)* | ⏳ Đang mở |
+| **Pha 4: Kiểm thử tích hợp, Khóa Code & Tài liệu** | **23:59 ngày 09/11** | **Cả nhóm** | Kiểm tra liên kết xuyên suốt 12 trang, test luồng đặt/hủy tour, kiểm tra W3C validation | ⏳ Sắp tới |
+| | | **Đăng** | Tổng hợp Báo cáo Word (`BaoCao_BTL_Web.docx` - chuẩn hóa danh sách tên & MSSV) và thiết kế Slide (`ThuyetTrinh_BTL_Web.pptx`) | ⏳ Sắp tới |
+| **Pha 5: Duyệt thuyết trình & Nộp bài** | **10/11 - 11/11/2026** | **Khánh nhỏ & Đăng** | Nhận slide, chạy thử demo trực tiếp trên trình duyệt và dợt kịch bản phản biện (ngày 10/11) | ⏳ Sắp tới |
+| | | **Cả nhóm** | Đóng gói nộp LMS và báo cáo trước giảng viên (ngày 11/11/2026) | 🎯 Đích đến |
 
 ---
 
 ### 6. QUY ƯỚC QUẢN LÝ HÌNH ẢNH (`assets/images/`)
 
-> **Người phụ trách: Lĩnh.** Lĩnh quản lý kho ảnh chung của website; các bạn khác không tự ý sửa, xóa hoặc đổi tên ảnh chung.
+> **Người phụ trách: Lĩnh.** Lĩnh quản lý kho ảnh chung của website trên nhánh `feature/about-sitemap`; các bạn khác không tự ý sửa, xóa hoặc đổi tên ảnh đang có.
 
 **Phân công**
-- Lĩnh thay các ảnh tạm (đang bị mờ vì cắt từ layout mẫu) bằng ảnh thật chất lượng cao: `hero-halong.jpg`, `promo-summer.jpg`, `tour-danang.jpg`, `tour-nhatrang.jpg`, `tour-phuquoc.jpg`, `tour-singapore.jpg`.
-- Lĩnh bổ sung ảnh cho các tour mới và ảnh thành viên cho trang `about.html`.
+- Lĩnh thay 6 ảnh tạm (đang cắt từ layout mẫu) bằng ảnh thật chất lượng cao, **giữ nguyên tên file**: `hero-halong.jpg`, `promo-summer.jpg`, `tour-danang.jpg`, `tour-nhatrang.jpg`, `tour-phuquoc.jpg`, `tour-singapore.jpg`.
+- Lĩnh bổ sung ảnh thành viên/công ty cho trang `about.html` (và có thể thêm ảnh cho các tour `T005`–`T012` nếu muốn).
 - Website phải có tối thiểu **7 hình ảnh** (yêu cầu đề bài).
-- Deadline: **23:59 ngày 05/11** để cả nhóm kiểm tra giao diện với ảnh thật.
+- Deadline hoàn thành kho ảnh: **23:59 ngày 04/11** cùng với nhánh `feature/about-sitemap`.
 
 **Quy ước đặt tên và định dạng**
 - Chữ thường, không dấu, nối bằng dấu gạch ngang. Ví dụ: `tour-danang.jpg`, `member-linh.jpg`.
-- Thay ảnh cũ thì **giữ nguyên tên file** để không phải sửa code. Nếu bắt buộc đổi tên, sửa trường `image` trong `assets/js/data.js` và tăng `ABC_DATA_VERSION`.
+- Thay ảnh cũ thì **giữ nguyên tên file** để không phải sửa code.
 - Định dạng `.jpg`/`.webp`, rộng khoảng 1200px cho ảnh banner, khoảng 800px cho ảnh tour. Mỗi ảnh nên dưới 300 KB.
 - Mọi thẻ `<img>` phải có thuộc tính `alt` mô tả nội dung (alt rỗng chỉ dùng cho ảnh trang trí).
 - Dùng ảnh có bản quyền cho phép (tự chụp hoặc ảnh miễn phí như Unsplash/Pexels) và ghi nguồn ở mục Tài liệu tham khảo của báo cáo.
 
-**Quy trình Git cho ảnh**
-- Lĩnh làm trên branch `feature/images` hoặc `feature/about-sitemap`, rồi tạo Pull Request như mục 4.
-- Bạn nào cần thêm ảnh riêng cho trang của mình: nhờ Lĩnh hoặc tự thêm file mới với tên không trùng, không sửa ảnh đang có.
+---
+
+### 7. QUY ƯỚC DỮ LIỆU `LOCALSTORAGE` & LIÊN KẾT TRANG (BẮT BUỘC ĐỂ KHỚP NỐI)
+
+Để các trang của **Khánh nhỏ**, **Khánh lớn**, **Phúc**, **Khánh Duy** và **Quốc Duy** ghép lại chạy trơn tru ngay lần đầu, cả nhóm thống nhất sử dụng khung HTML và các hàm dựng sẵn trong `assets/js/main.js`:
+
+#### 7.1. Khung HTML chung cho mọi trang
+Mọi trang `.html` đều nạp CSS/JS offline và để `<header id="site-header"></header>` + `<footer id="site-footer"></footer>` (file `main.js` sẽ tự động gắn Navbar, Modal Đăng nhập nhanh và Footer):
+```html
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tên trang - ABC Tours</title>
+  <link rel="stylesheet" href="assets/vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="tours"> <!-- data-page: home | tours | support | login -->
+  <a class="skip-link" href="#main">Bỏ qua điều hướng, đến nội dung chính</a>
+  <header id="site-header"></header>
+
+  <main id="main" class="container py-4">
+    <!-- Nội dung riêng của trang -->
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <!-- Script riêng của trang (nếu có) -->
+</body>
+</html>
+```
+
+#### 7.2. Quy ước truyền tham số URL giữa các trang
+- **Trang chủ (`index.html`) -> Danh sách tour (`tours.html`):**
+  - Tìm kiếm: `tours.html?q=Đà Nẵng&date=2026-11-15&people=2`
+  - Lọc nhanh từ menu: `tours.html?scope=domestic`, `tours.html?scope=international`, `tours.html?type=premium`, `tours.html?type=mice`, `tours.html?sale=1`
+- **Danh sách tour (`tours.html`) -> Chi tiết tour (`tour-detail.html`):**
+  - Link xem chi tiết: `tour-detail.html?id=T001` (dùng hàm `ABC.getTourById(id)` để lấy object tour).
+- **Chi tiết tour (`tour-detail.html`) -> Đặt tour (`booking.html`):**
+  - Nút Đặt ngay: `booking.html?id=T001`
+- **Đặt tour (`booking.html`) -> Thanh toán (`checkout.html`) -> Thành công (`booking-success.html`):**
+  - Lưu tạm thông tin đang nhập vào `ABC.write(ABC.KEYS.draftBooking, draftObj)` khi chuyển từ `booking.html` sang `checkout.html`.
+  - Khi bấm xác nhận ở `checkout.html`: tạo mã đơn `orderCode` (ví dụ `ORD-20261115-89`), gọi `ABC.saveOrder(orderObj)` rồi chuyển sang `booking-success.html?order=ORD-20261115-89`.
+- **Tra cứu (`my-bookings.html`) -> Hủy tour (`cancel-refund.html`):**
+  - Link sang hủy đơn: `cancel-refund.html?order=ORD-20261115-01`
+
+#### 7.3. Cấu trúc chuẩn các Key trong `localStorage` (Đã hỗ trợ sẵn trong `ABC`)
+1. **Tài khoản (`abc_users` & `currentUser`) - Phụ trách: Khánh nhỏ:**
+   - Gọi `ABC.saveUser({ fullName, email, phone, cccd, password, address })` khi đăng ký thành công.
+   - Gọi `ABC.login(identifier, password)` khi đăng nhập (tự động lưu `currentUser` vào `localStorage`).
+   - Tài khoản mẫu có sẵn để test: `demo@abctours.vn` / mật khẩu `Abc@1234`.
+2. **Danh sách Tour (`abc_tours`) - Phụ trách đọc: Khánh lớn, Phúc, Khánh Duy, Quốc Duy:**
+   - Gọi `ABC.getTours()` để lấy mảng 12 tour; gọi `ABC.getTourById("T001")` để lấy 1 tour; gọi `ABC.formatVND(5990000)` để định dạng tiền tệ (`5.990.000đ`).
+3. **Đơn đặt tour (`abc_orders`) - Phụ trách ghi: Khánh Duy / Phụ trách đọc & cập nhật: Quốc Duy:**
+   - Đã có sẵn 2 đơn mẫu `ORD-20261115-01` và `ORD-20261101-02` để Quốc Duy kiểm thử ngay.
+   - Mỗi object đơn hàng gồm các trường chuẩn:
+     ```json
+     {
+       "orderCode": "ORD-20261115-01",
+       "tourId": "T001",
+       "tourCode": "DN-BN-001",
+       "tourName": "Đà Nẵng - Bà Nà Hills - Hội An",
+       "departureDate": "2026-11-15T08:00:00",
+       "bookedAt": "2026-10-31T09:30:00",
+       "paymentDeadline": "2026-11-01T09:30:00",
+       "contact": {
+         "fullName": "Nguyễn Văn An",
+         "phone": "0901234567",
+         "email": "nguyenvanan@gmail.com",
+         "cccd": "079204001234",
+         "address": "12 Nguyễn Văn Bảo, P.4, Gò Vấp, TP.HCM"
+       },
+       "passengers": [
+         { "fullName": "Nguyễn Văn An", "dob": "2004-05-12", "gender": "Nam", "cccd": "079204001234", "nationality": "Việt Nam", "singleRoom": false }
+       ],
+       "unitPrice": 5990000,
+       "singleRoomTotal": 0,
+       "totalPrice": 5990000,
+       "paymentMethod": "Chuyển khoản ngân hàng (QR VietQR)",
+       "status": "confirmed"
+     }
+     ```
+   - Các hàm có sẵn cho Khánh Duy & Quốc Duy:
+     - `ABC.getOrders()`: Lấy danh sách tất cả đơn hàng.
+     - `ABC.getOrderByCode(code)`: Tìm đơn theo mã `orderCode`.
+     - `ABC.saveOrder(orderObj)`: Thêm đơn mới vào `abc_orders`.
+     - `ABC.calcRefund(orderObj)`: Tự động tính `{ hoursLeft, percent, refundAmount, reason }` theo mốc 24h (70%) / 12h (50%).
+     - `ABC.updateOrderStatus(code, "cancelled", { cancelledAt, refundAmount, cancelReason })`: Cập nhật trạng thái đơn khi hủy.
