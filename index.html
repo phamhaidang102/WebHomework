@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ABC Tours - Khám phá thế giới cùng ABC Tours | Đặt tour du lịch trực tuyến</title>
+  <meta name="description" content="ABC Tours - website giới thiệu và đặt tour du lịch trong nước, nước ngoài, tour cao cấp và M.I.C.E trực tuyến.">
+  <link rel="stylesheet" href="assets/vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="home">
+  <a class="skip-link" href="#main">Bỏ qua điều hướng, đến nội dung chính</a>
+  <header id="site-header"></header>
+
+  <main id="main">
+    <!-- HERO + FORM TÌM KIẾM -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <h1 id="hero-title">Khám phá thế giới<br>cùng ABC TOURS</h1>
+        <p class="lead mb-0">Những hành trình tuyệt vời - Trải nghiệm trọn vẹn</p>
+
+        <form class="search-box" id="search-form" role="search" aria-label="Tìm tour du lịch">
+          <div class="row g-3 align-items-end">
+            <div class="col-4">
+              <label for="s-dest" class="form-label">Điểm đến</label>
+              <input class="form-control" type="text" id="s-dest" name="dest" list="dest-list" placeholder="Nhập điểm đến, ví dụ: Đà Nẵng" autocomplete="off">
+              <datalist id="dest-list">
+                <option value="Đà Nẵng"></option>
+                <option value="Nha Trang"></option>
+                <option value="Phú Quốc"></option>
+                <option value="Singapore"></option>
+              </datalist>
+            </div>
+            <div class="col-3">
+              <label for="s-date" class="form-label">Ngày đi</label>
+              <input class="form-control" type="date" id="s-date" name="date">
+            </div>
+            <div class="col-3">
+              <label for="s-people" class="form-label">Số người</label>
+              <select class="form-select" id="s-people" name="people">
+                <option value="1">1 người</option>
+                <option value="2" selected>2 người</option>
+                <option value="3">3 người</option>
+                <option value="4">4 người</option>
+                <option value="5">5 người trở lên</option>
+              </select>
+            </div>
+            <div class="col-2 d-grid">
+              <button type="submit" class="btn btn-abc">Tìm tour</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- TOUR NỔI BẬT -->
+    <section class="container" aria-labelledby="featured-title">
+      <div class="section-title">
+        <h2 id="featured-title">Tour nổi bật</h2>
+        <a href="tours.html">Xem tất cả</a>
+      </div>
+      <div class="row g-4" id="featured-tours">
+        <p class="text-muted" id="featured-empty">Đang tải danh sách tour...</p>
+      </div>
+    </section>
+
+    <!-- BANNER ƯU ĐÃI -->
+    <section class="container mt-5" aria-labelledby="promo-title">
+      <div class="promo">
+        <div>
+          <h2 id="promo-title">Ưu đãi hè 2026<br>Giảm tới <strong>30%</strong></h2>
+          <p class="mb-3">Đặt sớm - giữ chỗ ngay hôm nay cho mùa du lịch hè.</p>
+          <a class="btn btn-abc-accent px-4" href="tours.html?sale=1">Xem ngay</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- VÌ SAO CHỌN ABC TOURS -->
+    <section class="container" aria-labelledby="why-title">
+      <div class="section-title"><h2 id="why-title">Vì sao chọn ABC Tours?</h2></div>
+      <div class="row g-4">
+        <div class="col-3"><div class="why-card"><div class="icon" aria-hidden="true">🧭</div><h3>Tour đa dạng</h3><p>Trong nước, nước ngoài, cao cấp và M.I.C.E cho mọi nhu cầu.</p></div></div>
+        <div class="col-3"><div class="why-card"><div class="icon" aria-hidden="true">💳</div><h3>Đặt tour dễ dàng</h3><p>Điền thông tin, thêm người đi cùng và xác nhận chỉ trong vài bước.</p></div></div>
+        <div class="col-3"><div class="why-card"><div class="icon" aria-hidden="true">🔔</div><h3>Thông báo kịp thời</h3><p>Nhận email/SMS khi xác nhận đơn, thay đổi lịch hoặc hủy tour.</p></div></div>
+        <div class="col-3"><div class="why-card"><div class="icon" aria-hidden="true">↩</div><h3>Hoàn tiền rõ ràng</h3><p>Hủy trước 24 giờ hoàn 70%, trước 12 giờ hoàn 50%.</p></div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/home.js"></script>
+</body>
+</html>
