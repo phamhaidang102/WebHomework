@@ -42,7 +42,7 @@ D:\Code\Bài tập lớn Web\
 - **Phúc (Frontend Dev / Tour Detail):** Trang Chi tiết tour (`tour-detail.html`), Carousel ảnh, bảng giá, lịch trình chi tiết từng ngày, chính sách tour.
 - **Khánh Duy (Frontend Dev / Booking Logic):** Trang Đặt tour & Modal thêm người đi cùng (`booking.html`), Trang Xác nhận & Thanh toán (`checkout.html`, `booking-success.html`), tính tiền và lưu đơn hàng vào LocalStorage.
 - **Quốc Duy (Frontend Dev / Lookup & Refund):** Trang Tra cứu đơn (`my-bookings.html`), Hủy tour & tính % hoàn tiền theo mốc 24h/12h (`cancel-refund.html`), Trang Quản trị đơn (`admin.html`).
-- **Lĩnh (Frontend Dev - Lập trình vừa sức):** Lập trình **Trang Giới thiệu (`about.html`)** và **Trang Sitemap (`sitemap.html`)**, chuẩn hóa kho hình ảnh chất lượng cao (>7 ảnh có `alt`).
+- **Lĩnh (Frontend Dev - Lập trình vừa sức):** Lập trình **Trang Giới thiệu (`about.html`)** và **Trang Sitemap (`sitemap.html`)**.
 - **Thành viên 8:** Thành viên phác thảo Concept giao diện ban đầu (hiện vắng mặt/mất liên lạc).
 
 ---
