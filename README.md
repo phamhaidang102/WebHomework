@@ -71,13 +71,13 @@ D:\Code\Bài tập lớn Web\
 #### 4.1. Bảng quy ước tên Branch theo trang cho từng thành viên:
 | Thành viên | Trang phụ trách | Tên Branch quy ước |
 |:---|:---|:---|
-| **SV1** | Trang chủ (`index.html`) | `feature/home` |
-| **SV2** | Đăng ký & Đăng nhập (`register.html`, `login.html`) | `feature/auth` |
-| **SV3** | Danh sách tour (`tours.html`) | `feature/tours` |
-| **SV4** | Chi tiết tour (`tour-detail.html`) | `feature/tour-detail` |
-| **SV5** | Đặt tour & Thanh toán (`booking.html`, `checkout.html`) | `feature/booking` |
-| **SV6** | Tra cứu & Hủy tour (`my-bookings.html`, `cancel-refund.html`) | `feature/refund` |
-| **SV7** | Giới thiệu & Sitemap (`about.html`, `sitemap.html`) | `feature/about-sitemap` |
+| **Đăng** | Trang chủ (`index.html`) | `feature/home` |
+| **Khánh nhỏ** | Đăng ký & Đăng nhập (`register.html`, `login.html`) | `feature/auth` |
+| **Khánh lớn** | Danh sách tour (`tours.html`) | `feature/tours` |
+| **Phúc** | Chi tiết tour (`tour-detail.html`) | `feature/tour-detail` |
+| **Khánh Duy** | Đặt tour & Thanh toán (`booking.html`, `checkout.html`) | `feature/booking` |
+| **Quốc Duy** | Tra cứu & Hủy tour (`my-bookings.html`, `cancel-refund.html`) | `feature/refund` |
+| **Lĩnh** | Giới thiệu & Sitemap (`about.html`, `sitemap.html`) | `feature/about-sitemap` |
 
 ---
 
