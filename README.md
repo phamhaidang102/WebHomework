@@ -6,19 +6,19 @@
 ### 1. Cấu trúc thư mục dự án
 ```
 D:\Code\Bài tập lớn Web\
-├── index.html              # 1. Trang chủ (SV1 - Nhóm trưởng)
-├── sitemap.html            # 2. Trang Sitemap (SV7)
-├── about.html              # 3. Trang Giới thiệu (SV7)
-├── register.html           # 4. Trang Đăng ký (SV2 - Thuyết trình viên)
-├── login.html              # 5. Trang Đăng nhập (SV2 - Thuyết trình viên)
-├── tours.html              # 6. Trang Danh sách tour (SV3)
-├── tour-detail.html        # 7. Trang Chi tiết tour (SV4)
-├── booking.html            # 8. Trang Nhập thông tin hành khách (SV5)
-├── checkout.html           # 9. Trang Xác nhận & Thanh toán (SV5)
-├── booking-success.html    # 10. Trang Đặt tour thành công (SV5)
-├── my-bookings.html        # 11. Trang Tra cứu & Quản lý đơn tour (SV6)
-├── cancel-refund.html      # 12. Trang Hủy tour & Chính sách hoàn tiền (SV6)
-├── admin.html              # Trang Quản trị cơ bản (SV6)
+├── index.html              # 1. Trang chủ (Đăng - Nhóm trưởng)
+├── sitemap.html            # 2. Trang Sitemap (Lĩnh)
+├── about.html              # 3. Trang Giới thiệu (Lĩnh)
+├── register.html           # 4. Trang Đăng ký (Khánh nhỏ - Thuyết trình viên)
+├── login.html              # 5. Trang Đăng nhập (Khánh nhỏ - Thuyết trình viên)
+├── tours.html              # 6. Trang Danh sách tour (Khánh lớn)
+├── tour-detail.html        # 7. Trang Chi tiết tour (Phúc)
+├── booking.html            # 8. Trang Nhập thông tin hành khách (Khánh Duy)
+├── checkout.html           # 9. Trang Xác nhận & Thanh toán (Khánh Duy)
+├── booking-success.html    # 10. Trang Đặt tour thành công (Khánh Duy)
+├── my-bookings.html        # 11. Trang Tra cứu & Quản lý đơn tour (Quốc Duy)
+├── cancel-refund.html      # 12. Trang Hủy tour & Chính sách hoàn tiền (Quốc Duy)
+├── admin.html              # Trang Quản trị cơ bản (Quốc Duy)
 │
 ├── assets/
 │   ├── css/
@@ -29,21 +29,21 @@ D:\Code\Bài tập lớn Web\
 │   ├── js/
 │   │   ├── data.js         # Dữ liệu tour mẫu nạp vào LocalStorage
 │   │   └── main.js         # Logic dùng chung
-│   └── images/             # Toàn bộ hình ảnh dự án (SV7 chuẩn hóa)
+│   └── images/             # Toàn bộ hình ảnh dự án (Lĩnh chuẩn hóa)
 └── notes/                  # Thư mục ghi chú nội bộ (Đã được .gitignore tự động bỏ qua)
 ```
 
 ---
 
 ### 2. Bảng phân công nhiệm vụ
-- **SV1 (Nhóm trưởng / Architect & Slide Lead):** Điều phối Git, khởi tạo template dùng chung, Trang chủ (`index.html`), **thiết kế toàn bộ Slide thuyết trình PowerPoint (`ThuyetTrinh_BTL_Web.pptx`)**, tổng hợp hoàn thiện Báo cáo Word.
-- **SV2 (Frontend Dev & Thuyết trình viên chính):** **Đại diện nhóm thuyết trình và trả lời phản biện**, lập trình module Đăng ký (`register.html` regex validate jQuery) & Đăng nhập (`login.html`), quản lý session `currentUser` qua LocalStorage.
-- **SV3 (Frontend Dev / Tour Catalog):** Trang Danh sách tour (`tours.html`), bộ lọc đa tiêu chí bên trái (Vùng miền, Quốc tế, Giá, Loại tour M.I.C.E), phân trang.
-- **SV4 (Frontend Dev / Tour Detail):** Trang Chi tiết tour (`tour-detail.html`), Carousel ảnh, bảng giá, lịch trình chi tiết từng ngày, chính sách tour.
-- **SV5 (Frontend Dev / Booking Logic):** Trang Đặt tour & Modal thêm người đi cùng (`booking.html`), Trang Xác nhận & Thanh toán (`checkout.html`, `booking-success.html`), tính tiền và lưu đơn hàng vào LocalStorage.
-- **SV6 (Frontend Dev / Lookup & Refund):** Trang Tra cứu đơn (`my-bookings.html`), Hủy tour & tính % hoàn tiền theo mốc 24h/12h (`cancel-refund.html`), Trang Quản trị đơn (`admin.html`).
-- **SV7 (Frontend Dev - Lập trình vừa sức):** Lập trình **Trang Giới thiệu (`about.html`)** và **Trang Sitemap (`sitemap.html`)**, chuẩn hóa kho hình ảnh chất lượng cao (>7 ảnh có `alt`).
-- **SV8:** Thành viên phác thảo Concept giao diện ban đầu (hiện vắng mặt/mất liên lạc).
+- **Đăng (Nhóm trưởng / Architect & Slide Lead):** Điều phối Git, khởi tạo template dùng chung, Trang chủ (`index.html`), **thiết kế toàn bộ Slide thuyết trình PowerPoint (`ThuyetTrinh_BTL_Web.pptx`)**, tổng hợp hoàn thiện Báo cáo Word.
+- **Khánh nhỏ (Frontend Dev & Thuyết trình viên chính):** **Đại diện nhóm thuyết trình và trả lời phản biện**, lập trình module Đăng ký (`register.html` regex validate jQuery) & Đăng nhập (`login.html`), quản lý session `currentUser` qua LocalStorage.
+- **Khánh lớn (Frontend Dev / Tour Catalog):** Trang Danh sách tour (`tours.html`), bộ lọc đa tiêu chí bên trái (Vùng miền, Quốc tế, Giá, Loại tour M.I.C.E), phân trang.
+- **Phúc (Frontend Dev / Tour Detail):** Trang Chi tiết tour (`tour-detail.html`), Carousel ảnh, bảng giá, lịch trình chi tiết từng ngày, chính sách tour.
+- **Khánh Duy (Frontend Dev / Booking Logic):** Trang Đặt tour & Modal thêm người đi cùng (`booking.html`), Trang Xác nhận & Thanh toán (`checkout.html`, `booking-success.html`), tính tiền và lưu đơn hàng vào LocalStorage.
+- **Quốc Duy (Frontend Dev / Lookup & Refund):** Trang Tra cứu đơn (`my-bookings.html`), Hủy tour & tính % hoàn tiền theo mốc 24h/12h (`cancel-refund.html`), Trang Quản trị đơn (`admin.html`).
+- **Lĩnh (Frontend Dev - Lập trình vừa sức):** Lập trình **Trang Giới thiệu (`about.html`)** và **Trang Sitemap (`sitemap.html`)**, chuẩn hóa kho hình ảnh chất lượng cao (>7 ảnh có `alt`).
+- **Thành viên 8:** Thành viên phác thảo Concept giao diện ban đầu (hiện vắng mặt/mất liên lạc).
 
 ---
 
@@ -61,14 +61,28 @@ D:\Code\Bài tập lớn Web\
 
 ---
 
-### 4. HƯỚNG DẪN DÙNG GIT & QUY TRÌNH GITHUB WORKFLOW CHO NHÓM
+### 4. HƯỚNG DẪN DÙNG GIT & GITHUB WORKFLOW (CHO VS CODE VÀ TERMINAL)
 
-> **Nguyên tắc cốt lõi:**
-> - Nhánh `main` là nhánh sản phẩm hoàn chỉnh, **KHÔNG AI ĐƯỢC CODE TRỰC TIẾP TRÊN MAIN**.
-> - Mỗi thành viên làm trang nào thì tạo một **branch riêng** cho trang đó theo cú pháp: `feature/<ten-trang>`.
-> - Sau khi làm xong và test chạy tốt trên máy của mình thì mới đẩy (push) branch lên GitHub và tạo **Pull Request (PR)** để Trưởng nhóm gộp (merge) vào `main`.
+#### 4.0. BƯỚC BẮT BUỘC: Nhóm trưởng cấp quyền Cộng sự (Collaborator)
+> **Giải đáp thắc mắc:** *"Muốn sửa repo thì phải ở dạng cộng sự, dùng VS Code có được không?"*
+> - **DÙNG VS CODE HOÀN TOÀN PUSH ĐƯỢC 100%!** VS Code chỉ là công cụ giao diện hỗ trợ Git.
+> - Tuy nhiên, vì repo này nằm trên tài khoản GitHub cá nhân của Đăng (`phamhaidang102`), nên **bắt buộc Đăng phải mời các bạn làm Cộng sự** thì các bạn mới có quyền đẩy (push) code lên:
+>   1. Đăng vào link: [https://github.com/phamhaidang102/WebHomework/settings/access](https://github.com/phamhaidang102/WebHomework/settings/access)
+>   2. Bấm nút màu xanh **"Add people"**.
+>   3. Nhập Username GitHub hoặc Email của từng bạn (Khánh nhỏ, Khánh lớn, Phúc, Khánh Duy, Quốc Duy, Lĩnh) để gửi lời mời.
+>   4. Các bạn vào email kiểm tra thư từ GitHub và bấm **"Accept invitation"** (Chấp nhận lời mời).
+>   👉 *Sau khi chấp nhận, các bạn mở VS Code lên là push tẹt ga, không bao giờ bị báo lỗi từ chối quyền (403 Permission Denied).*
 
-#### 4.1. Bảng quy ước tên Branch theo trang cho từng thành viên:
+---
+
+#### 4.1. Hướng dẫn tải và cài đặt Git (Dành cho bạn nào máy chưa có Git)
+1. Tải bộ cài Git chính thức tại: [https://git-scm.com/downloads](https://git-scm.com/downloads) (chọn bản cho Windows).
+2. Mở file cài đặt vừa tải về, cứ bấm **Next** liên tục theo mặc định cho đến khi hoàn tất (**Finish**).
+3. Mở phần mềm **Visual Studio Code (VS Code)** lên là VS Code sẽ tự động nhận diện Git.
+
+---
+
+#### 4.2. Bảng quy ước tên Branch theo trang cho từng thành viên:
 | Thành viên | Trang phụ trách | Tên Branch quy ước |
 |:---|:---|:---|
 | **Đăng** | Trang chủ (`index.html`) | `feature/home` |
@@ -81,78 +95,75 @@ D:\Code\Bài tập lớn Web\
 
 ---
 
-#### 4.2. Quy trình làm việc 5 bước cụ thể (Kèm ví dụ thực chiến)
+#### 4.3. CÁCH 1: Dùng Git bằng Giao diện trực quan trên VS Code (DỄ NHẤT - KHUYÊN DÙNG)
 
-Giả sử bạn là **SV3**, được phân công làm trang **Danh sách tour (`tours.html`)**:
+*(Không cần nhớ lệnh gõ terminal, chỉ cần click chuột)*
 
-##### 🔹 BƯỚC 1: Lấy code mới nhất từ nhánh `main` về máy
-Mở terminal/cmd tại thư mục dự án và chạy:
+1. **Clone repo về máy:**
+   - Mở VS Code -> Nhấn `Ctrl + Shift + P` -> Gõ `Git: Clone` -> Dán link: `https://github.com/phamhaidang102/WebHomework.git` -> Chọn thư mục lưu trên máy tính.
+   - Nhấn **Open** để mở thư mục dự án trên VS Code.
+   - *(Lần đầu tiên VS Code có thể hiện cửa sổ nhỏ ở góc dưới hỏi đăng nhập GitHub, bạn bấm **Sign in to GitHub** và cấp quyền là xong).*
+
+2. **Tạo branch riêng của mình:**
+   - Nhìn xuống **thanh trạng thái màu xanh dưới cùng bên trái của VS Code**, bạn sẽ thấy chữ `main`.
+   - Bấm chuột vào chữ `main` đó -> Chọn **"+ Create new branch..."**.
+   - Nhập tên nhánh của mình (theo bảng 4.2 ở trên, ví dụ: `feature/tours`) rồi nhấn **Enter**.
+   - Lúc này góc dưới bên trái sẽ chuyển thành tên nhánh của bạn.
+
+3. **Viết code và lưu lại (Commit):**
+   - Bạn mở file HTML/CSS được phân công lên viết code bình thường.
+   - Khi muốn lưu lại: Nhìn sang thanh công cụ bên trái của VS Code, bấm vào icon **Source Control** (hình nhánh cây có vòng tròn hoặc phím tắt `Ctrl + Shift + G`).
+   - Bạn sẽ thấy danh sách các file mình vừa sửa ở mục *Changes*.
+   - Nhập nội dung vào ô tin nhắn (Message), ví dụ: *"Hoàn thành giao diện danh sách tour"*.
+   - Bấm nút **Commit** (hoặc dấu tích `✓`).
+
+4. **Đẩy lên GitHub (Push):**
+   - Ngay sau khi bấm Commit, bạn sẽ thấy nút màu xanh **"Publish Branch"** (hoặc nút **Sync Changes** có icon 2 mũi tên xoay tròn ở góc dưới bên trái).
+   - Bấm vào nút đó! VS Code sẽ tự động đẩy nhánh `feature/...` của bạn lên GitHub.
+
+5. **Tạo Pull Request:**
+   - Vào link: [https://github.com/phamhaidang102/WebHomework](https://github.com/phamhaidang102/WebHomework)
+   - Bấm nút **"Compare & pull request"** màu vàng -> Nhấn **"Create pull request"**.
+   - Nhắn Đăng (Trưởng nhóm) vào bấm Merge là xong!
+
+---
+
+#### 4.4. CÁCH 2: Dùng Git bằng Dòng lệnh Terminal (Dành cho bạn nào thích gõ lệnh)
+
+Mở terminal/cmd trong thư mục dự án:
 ```bash
-# 1. Chuyển sang nhánh main
+# 1. Kéo code mới nhất từ main về máy
 git checkout main
-
-# 2. Kéo code mới nhất từ GitHub về
 git pull origin main
-```
 
-##### 🔹 BƯỚC 2: Tạo branch mới cho trang của mình và bắt đầu làm
-```bash
-# Tạo nhánh mới và tự động chuyển sang nhánh đó
+# 2. Tạo nhánh riêng của mình (ví dụ làm trang tours)
 git checkout -b feature/tours
 
-# Kiểm tra xem mình đã ở nhánh feature/tours chưa (sẽ thấy dấu * màu xanh ở tên nhánh)
-git branch
-```
-👉 *Bây giờ bạn bắt đầu mở VS Code lên tạo file `tours.html` và viết code.*
+# 3. Viết code xong thì thêm file và commit
+git add .
+git commit -m "feat(tours): Hoan thanh giao dien va bo loc tour"
 
-##### 🔹 BƯỚC 3: Lưu lại tiến độ (Commit code)
-Sau khi code xong hoặc làm được một phần công việc:
-```bash
-# 1. Xem các file bạn vừa tạo hoặc chỉnh sửa
-git status
-
-# 2. Thêm các file cần lưu vào vùng chờ (stage)
-git add tours.html assets/
-
-# 3. Ghi lại nội dung commit rõ ràng
-git commit -m "feat(tours): Hoan thanh giao dien danh sach tour va bo loc"
-```
-
-##### 🔹 BƯỚC 4: Đẩy (Push) branch của mình lên GitHub
-```bash
+# 4. Đẩy nhánh lên GitHub
 git push origin feature/tours
 ```
-*(Nếu là lần đầu push nhánh này, terminal có thể nhắc dùng lệnh `git push --set-upstream origin feature/tours`, bạn cứ chạy theo gợi ý).*
-
-##### 🔹 BƯỚC 5: Tạo Pull Request (PR) trên GitHub
-1. Vào trang GitHub của dự án (trên trình duyệt).
-2. Bạn sẽ thấy thanh màu vàng thông báo: **`feature/tours had recent pushes`** -> Nhấn nút **`Compare & pull request`**.
-3. Điền tiêu đề và mô tả ngắn gọn: *"Đã hoàn thành trang danh sách tour kèm bộ lọc"*.
-4. Nhấn **`Create pull request`**.
-5. Nhắn **Nhóm trưởng (SV1)** lên duyệt và nhấn nút **`Merge pull request`** vào nhánh `main`.
+Sau đó lên link GitHub bấm **Compare & pull request** tương tự như Bước 5 của Cách 1.
 
 ---
 
-#### 4.3. Hướng dẫn dành cho Nhóm trưởng (SV1) duyệt và gộp code:
-- **Cách 1 (Dễ nhất):** Vào GitHub trên trình duyệt -> Tab **Pull requests** -> Mở PR của bạn thành viên -> Xem thay đổi (Files changed) -> Bấm **Merge pull request** -> **Confirm merge**.
-- **Cách 2 (Trên máy tính cá nhân):**
-  ```bash
-  git checkout main
-  git pull origin main
-  git merge feature/tours
-  git push origin main
-  ```
+#### 4.5. Hướng dẫn dành cho Nhóm trưởng (Đăng) duyệt và gộp code:
+- Vào link repo trên GitHub -> Tab **Pull requests** -> Bấm vào PR của bạn thành viên gửi -> Xem các file thay đổi (Files changed) -> Bấm **Merge pull request** -> **Confirm merge**.
+- Sau khi Đăng merge xong, nhánh `main` trên GitHub sẽ có code mới của bạn đó. Các bạn khác muốn lấy code mới về chỉ cần bấm nút **Sync** trên VS Code hoặc gõ `git checkout main && git pull origin main`.
 
 ---
 
-#### 4.4. Các lưu ý quan trọng để không bị xung đột code (Conflict):
-1. **Ai làm file nào chỉ sửa file đó:** SV3 chỉ tạo và sửa `tours.html`, SV4 chỉ làm `tour-detail.html`. Không tự ý sửa file HTML của người khác.
-2. **Khi viết thêm CSS chung vào `assets/css/style.css`:**
-   Mỗi bạn hãy kéo xuống dưới cùng của file `style.css` và ghi chú rõ ràng theo cú pháp:
+#### 4.6. Các lưu ý quan trọng để không bao giờ bị xung đột (Conflict):
+1. **Phân chia file độc lập:** Mỗi bạn chỉ tạo và sửa file HTML được phân công trong bảng mục 2. Không sửa file HTML của nhau.
+2. **Khi viết thêm CSS vào file `assets/css/style.css`:**
+   Kéo xuống dưới cùng của file `style.css`, ghi chú tên mình rồi viết CSS tiếp theo:
    ```css
-   /* ==================================== */
-   /* CSS DÀNH RIÊNG CHO TRANG TOURS (SV3) */
-   /* ==================================== */
+   /* ======================================= */
+   /* CSS DÀNH RIÊNG CHO TRANG TOURS (KHÁNH LỚN) */
+   /* ======================================= */
    .tour-card { ... }
    ```
-3. **Thư mục ghi chú:** Toàn bộ note, dàn ý nháp, tài liệu cá nhân hãy để trong thư mục `notes/`. Thư mục này đã được cài đặt tự động bỏ qua trong `.gitignore` nên sẽ không bị đẩy lên GitHub làm bẩn repo.
+3. **Thư mục ghi chú:** Toàn bộ note cá nhân, tài liệu nháp cứ ném vào thư mục `notes/`. Thư mục này đã có `.gitignore` bảo vệ nên không bao giờ bị đẩy lên GitHub làm bẩn repo chung.
