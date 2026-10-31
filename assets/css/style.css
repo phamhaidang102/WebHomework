@@ -1,0 +1,145 @@
+/* =====================================================
+   ABC TOURS - STYLESHEET DÙNG CHUNG (Desktop first)
+   Mọi thành viên: viết CSS riêng của trang mình ở CUỐI file,
+   có comment tiêu đề tên trang + tên người làm.
+   ===================================================== */
+
+/* ---------- 1. Design tokens (bảng màu theo layout) ---------- */
+:root {
+  --abc-primary: #007bff;
+  --abc-primary-dark: #0062cc;
+  --abc-secondary: #00c896;
+  --abc-accent: #ff6b00;
+  --abc-bg: #f5f7fa;
+  --abc-text: #1e293b;
+  --abc-muted: #64748b;
+  --abc-border: #e2e8f0;
+  --abc-card: #ffffff;
+  --abc-radius: 12px;
+  --abc-shadow: 0 2px 10px rgba(30, 41, 59, 0.08);
+}
+
+/* ---------- 2. Nền tảng ---------- */
+body {
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: var(--abc-bg);
+  color: var(--abc-text);
+  min-width: 1200px; /* Chỉ hỗ trợ Desktop/Laptop */
+}
+a { color: var(--abc-primary); }
+img { max-width: 100%; }
+.container { max-width: 1200px; }
+
+/* Skip link cho bàn phím / trình đọc màn hình */
+.skip-link {
+  position: absolute; left: 8px; top: -48px; z-index: 2000;
+  background: var(--abc-primary); color: #fff; padding: 8px 14px; border-radius: 8px;
+}
+.skip-link:focus { top: 8px; color: #fff; }
+
+:focus-visible { outline: 3px solid var(--abc-accent); outline-offset: 2px; }
+
+/* ---------- 3. Nút dùng chung ---------- */
+.btn-abc {
+  background: var(--abc-primary); border: 1px solid var(--abc-primary); color: #fff;
+  font-weight: 600; border-radius: 8px; padding: 8px 18px;
+}
+.btn-abc:hover, .btn-abc:focus { background: var(--abc-primary-dark); border-color: var(--abc-primary-dark); color: #fff; }
+.btn-abc-accent { background: var(--abc-accent); border-color: var(--abc-accent); color: #fff; font-weight: 600; border-radius: 8px; }
+.btn-abc-accent:hover { background: #e55f00; border-color: #e55f00; color: #fff; }
+.btn-abc-outline { background: #fff; border: 1px solid var(--abc-primary); color: var(--abc-primary); font-weight: 600; border-radius: 8px; }
+.btn-abc-outline:hover { background: var(--abc-primary); color: #fff; }
+
+/* ---------- 4. Navbar dùng chung ---------- */
+.abc-navbar {
+  background: #fff; box-shadow: var(--abc-shadow);
+  position: sticky; top: 0; z-index: 1000; padding: 10px 0;
+}
+.abc-navbar .navbar-brand {
+  font-weight: 800; color: var(--abc-primary); letter-spacing: .5px;
+  display: flex; align-items: center; gap: 8px;
+}
+.abc-navbar .navbar-brand .brand-mark {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: var(--abc-primary); color: #fff;
+  display: inline-flex; align-items: center; justify-content: center; font-size: 16px;
+}
+.abc-navbar .nav-link { color: var(--abc-text); font-weight: 600; padding: 8px 14px; border-radius: 8px; }
+.abc-navbar .nav-link:hover { color: var(--abc-primary); background: var(--abc-bg); }
+.abc-navbar .nav-link.active { color: var(--abc-primary); border-bottom: 3px solid var(--abc-primary); border-radius: 0; }
+.abc-navbar .dropdown-menu { border: 1px solid var(--abc-border); border-radius: 10px; box-shadow: var(--abc-shadow); }
+.abc-navbar .dropdown-item:active { background: var(--abc-primary); }
+
+/* ---------- 5. Footer dùng chung ---------- */
+.abc-footer { background: var(--abc-text); color: #cbd5e1; margin-top: 64px; padding: 40px 0 0; }
+.abc-footer h2 { font-size: 1rem; color: #fff; font-weight: 700; margin-bottom: 14px; }
+.abc-footer a { color: #cbd5e1; text-decoration: none; }
+.abc-footer a:hover { color: #fff; text-decoration: underline; }
+.abc-footer ul { list-style: none; padding: 0; margin: 0; }
+.abc-footer li { margin-bottom: 8px; }
+.abc-footer .brand-line { color: #fff; font-weight: 800; font-size: 1.25rem; }
+.abc-footer .copyright { border-top: 1px solid #334155; margin-top: 28px; padding: 16px 0; font-size: .875rem; }
+
+/* ---------- 6. Thành phần dùng chung: tiêu đề mục, thẻ tour ---------- */
+.section-title { display: flex; align-items: baseline; justify-content: space-between; margin: 40px 0 18px; }
+.section-title h2 { font-size: 1.5rem; font-weight: 800; margin: 0; }
+
+.tour-card {
+  position: relative;
+  background: var(--abc-card); border-radius: var(--abc-radius); overflow: hidden;
+  box-shadow: var(--abc-shadow); height: 100%; display: flex; flex-direction: column;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.tour-card:hover { transform: translateY(-4px); box-shadow: 0 8px 22px rgba(30, 41, 59, .14); }
+.tour-card .thumb { position: relative; aspect-ratio: 4 / 3; overflow: hidden; background: var(--abc-border); }
+.tour-card .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.tour-card .badge-sale {
+  position: absolute; top: 10px; left: 10px; background: var(--abc-accent); color: #fff;
+  font-size: .75rem; font-weight: 700; padding: 3px 8px; border-radius: 6px;
+}
+.tour-card .body { padding: 14px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.tour-card h3 { font-size: 1.05rem; font-weight: 700; margin: 0; }
+.tour-card .meta { color: var(--abc-muted); font-size: .85rem; }
+.tour-card .rating { font-size: .85rem; color: var(--abc-text); }
+.tour-card .rating .star { color: #f5a623; }
+.tour-card .price { color: var(--abc-accent); font-weight: 800; font-size: 1.15rem; margin-top: auto; }
+.tour-card .price del { color: var(--abc-muted); font-weight: 400; font-size: .85rem; margin-left: 6px; }
+
+/* ====================================================
+   TRANG CHỦ (index.html) - Đăng (Nhóm trưởng)
+   ==================================================== */
+.hero {
+  position: relative; min-height: 460px; color: #fff; display: flex; align-items: center;
+  background:
+    linear-gradient(90deg, rgba(8, 40, 80, .72) 0%, rgba(8, 40, 80, .25) 60%, rgba(8, 40, 80, .05) 100%),
+    url("../images/hero-halong.jpg") center / cover no-repeat;
+}
+.hero h1 { font-size: 3rem; font-weight: 800; line-height: 1.15; text-shadow: 0 2px 8px rgba(0, 0, 0, .35); }
+.hero .lead { font-size: 1.15rem; text-shadow: 0 1px 6px rgba(0, 0, 0, .35); }
+
+.search-box {
+  background: #fff; color: var(--abc-text); border-radius: 14px; padding: 16px 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .2); margin-top: 28px;
+}
+.search-box label { font-size: .8rem; color: var(--abc-muted); font-weight: 600; margin-bottom: 2px; }
+.search-box .form-control, .search-box .form-select { border: 0; border-bottom: 2px solid var(--abc-border); border-radius: 0; padding-left: 0; box-shadow: none; }
+.search-box .form-control:focus, .search-box .form-select:focus { border-bottom-color: var(--abc-primary); }
+.search-box .btn-abc { padding: 12px 28px; font-size: 1.05rem; }
+
+.promo {
+  position: relative; border-radius: 16px; overflow: hidden; min-height: 190px; color: #fff;
+  display: flex; align-items: center; padding: 0 40px;
+  background:
+    linear-gradient(90deg, #0a74da 0%, #0a74da 38%, rgba(10, 116, 218, 0) 78%),
+    url("../images/promo-summer.jpg") right center / cover no-repeat;
+}
+.promo h2 { font-size: 2rem; font-weight: 800; margin: 0 0 6px; }
+.promo h2 strong { color: #ffd54a; }
+
+.why-card { background: #fff; border-radius: var(--abc-radius); box-shadow: var(--abc-shadow); padding: 22px; height: 100%; }
+.why-card .icon {
+  width: 44px; height: 44px; border-radius: 12px; display: inline-flex; align-items: center; justify-content: center;
+  background: rgba(0, 123, 255, .1); font-size: 22px; margin-bottom: 10px;
+}
+.why-card h3 { font-size: 1.05rem; font-weight: 700; }
+.why-card p { margin: 0; color: var(--abc-muted); font-size: .92rem; }
