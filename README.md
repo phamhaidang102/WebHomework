@@ -176,16 +176,16 @@ Sau đó lên link GitHub bấm **Compare & pull request** tương tự như Bư
 
 | Giai đoạn | Hạn chót (Deadline) | Thành viên | Nhiệm vụ cần hoàn thành & Merge PR |
 |:---|:---:|:---|:---|
-| **Pha 1: Xây móng** | **23:59 ngày 02/11** | **Đăng** | Khởi tạo khung Header/Footer/CSS chung và Trang chủ (index.html) -> Merge vào main để cả nhóm kéo về |
+| **Pha 1: Xây móng** | **23:59 ngày 02/11** | **Đăng** | Khởi tạo khung Header/Footer/CSS chung và Trang chủ (`index.html`) -> Merge vào `main` để cả nhóm kéo về |
 | **Pha 2: Giao diện tĩnh & Auth** | **23:59 ngày 05/11** | **Lĩnh** | Hoàn thành `sitemap.html`, `about.html`; quản lý kho ảnh `assets/images/` (thay ảnh tạm bằng ảnh thật chất lượng cao, xem mục 6) |
 | | | **Khánh nhỏ** | Hoàn thành 
 egister.html (Regex jQuery) & login.html (Lưu LocalStorage) |
 | | | **Phúc** | Hoàn thành `tour-detail.html` (Carousel ảnh, lịch trình ngày, bảng giá) |
 | **Pha 3: Danh mục & Đặt tour** | **23:59 ngày 08/11** | **Khánh lớn** | Hoàn thành `tours.html` (Bộ lọc đa năng, phân trang) |
 | | | **Khánh Duy** | Hoàn thành `booking.html`, `checkout.html`, `booking-success.html` (Lưu đơn LocalStorage) |
-| | | **Quốc Duy** | Hoàn thành my-bookings.html (Tra cứu), cancel-refund.html (Hủy tour/hoàn tiền), `admin.html` |
+| | | **Quốc Duy** | Hoàn thành `my-bookings.html` (Tra cứu), `cancel-refund.html` (Hủy tour/hoàn tiền), `admin.html` |
 | **Pha 4: Khóa Code & Đóng gói** | **23:59 ngày 10/11** | **Cả nhóm** | Kiểm tra liên kết 12 trang, W3C validation, không còn lỗi hiển thị |
-| | | **Đăng** | Hoàn thiện Báo cáo Word (BaoCao_BTL_Web.docx) & Slide thuyết trình (ThuyetTrinh_BTL_Web.pptx) |
+| | | **Đăng** | Hoàn thiện Báo cáo Word (`BaoCao_BTL_Web.docx`) & Slide thuyết trình (`ThuyetTrinh_BTL_Web.pptx`) |
 | | | **Khánh nhỏ** | Nhận slide từ Đăng và dợt kịch bản thuyết trình thử |
 | **Pha 5: Ngày nộp bài** | **11/11/2026** | **Cả nhóm** | Đóng gói nộp LMS và báo cáo trước giảng viên! |
 
