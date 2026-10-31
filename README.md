@@ -178,8 +178,7 @@ Sau đó lên link GitHub bấm **Compare & pull request** tương tự như Bư
 |:---|:---:|:---|:---|
 | **Pha 1: Xây móng** | **23:59 ngày 02/11** | **Đăng** | Khởi tạo khung Header/Footer/CSS chung và Trang chủ (`index.html`) -> Merge vào `main` để cả nhóm kéo về |
 | **Pha 2: Giao diện tĩnh & Auth** | **23:59 ngày 05/11** | **Lĩnh** | Hoàn thành `sitemap.html`, `about.html`; quản lý kho ảnh `assets/images/` (thay ảnh tạm bằng ảnh thật chất lượng cao, xem mục 6) |
-| | | **Khánh nhỏ** | Hoàn thành 
-egister.html (Regex jQuery) & login.html (Lưu LocalStorage) |
+| | | **Khánh nhỏ** | Hoàn thành `register.html` (Regex jQuery) & `login.html` (Lưu LocalStorage) |
 | | | **Phúc** | Hoàn thành `tour-detail.html` (Carousel ảnh, lịch trình ngày, bảng giá) |
 | **Pha 3: Danh mục & Đặt tour** | **23:59 ngày 08/11** | **Khánh lớn** | Hoàn thành `tours.html` (Bộ lọc đa năng, phân trang) |
 | | | **Khánh Duy** | Hoàn thành `booking.html`, `checkout.html`, `booking-success.html` (Lưu đơn LocalStorage) |
